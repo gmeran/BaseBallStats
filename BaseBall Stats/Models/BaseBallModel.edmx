@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GabeTest_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Hitting_Stats">
+          <Key>
+            <PropertyRef Name="HittingStatId" />
+          </Key>
+          <Property Name="HittingStatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GamesPlayed" Type="int" />
+          <Property Name="PA" Type="int" />
+          <Property Name="Hits" Type="int" />
+          <Property Name="DB" Type="int" />
+          <Property Name="TRP" Type="int" />
+          <Property Name="HR" Type="int" />
+          <Property Name="SB" Type="int" />
+          <Property Name="CS" Type="int" />
+          <Property Name="BB" Type="int" />
+          <Property Name="SO" Type="int" />
+          <Property Name="BA" Type="decimal" Precision="4" Scale="3" />
+          <Property Name="OPB" Type="decimal" Precision="4" Scale="3" />
+          <Property Name="SLG" Type="decimal" Precision="4" Scale="3" />
+          <Property Name="OPS" Type="decimal" Precision="4" Scale="3" />
+          <Property Name="PlayerId" Type="int" />
+          <Property Name="StatYear" Type="int" />
+        </EntityType>
+        <EntityType Name="Pitching_Stats">
+          <Key>
+            <PropertyRef Name="PitchingStatId" />
+          </Key>
+          <Property Name="PitchingStatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="statYear" Type="int" />
+          <Property Name="W" Type="int" />
+          <Property Name="L" Type="int" />
+          <Property Name="WLPECT" Type="decimal" Precision="4" Scale="3" />
+          <Property Name="ERA" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="WHIP" Type="decimal" Precision="4" Scale="1" />
+          <Property Name="G" Type="int" />
+          <Property Name="GS" Type="int" />
+          <Property Name="CG" Type="int" />
+          <Property Name="SHO" Type="int" />
+          <Property Name="SV" Type="int" />
+          <Property Name="InningsPitched" Type="decimal" Precision="4" Scale="1" />
+          <Property Name="H" Type="int" />
+          <Property Name="R" Type="int" />
+          <Property Name="ER" Type="int" />
+          <Property Name="HR" Type="int" />
+          <Property Name="BB" Type="int" />
+          <Property Name="IBB" Type="int" />
+          <Property Name="SO" Type="int" />
+          <Property Name="HBP" Type="int" />
+          <Property Name="PlayerId" Type="int" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="PlayerId" />
+          </Key>
+          <Property Name="PlayerId" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="200" />
+          <Property Name="LastName" Type="varchar" MaxLength="350" />
+          <Property Name="Postion" Type="varchar" MaxLength="4" />
+          <Property Name="YearStarted" Type="int" />
+          <Property Name="YearEnded" Type="int" />
+        </EntityType>
+        <Association Name="FK__Hitting_S__Playe__04E4BC85">
+          <End Role="Player" Type="Self.Player" Multiplicity="0..1" />
+          <End Role="Hitting_Stats" Type="Self.Hitting_Stats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="PlayerId" />
+            </Principal>
+            <Dependent Role="Hitting_Stats">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pitching___Playe__07C12930">
+          <End Role="Player" Type="Self.Player" Multiplicity="0..1" />
+          <End Role="Pitching_Stats" Type="Self.Pitching_Stats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="PlayerId" />
+            </Principal>
+            <Dependent Role="Pitching_Stats">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GabeTest_DBModelStoreContainer">
+          <EntitySet Name="Hitting_Stats" EntityType="Self.Hitting_Stats" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pitching_Stats" EntityType="Self.Pitching_Stats" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Player" EntityType="Self.Player" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Hitting_S__Playe__04E4BC85" Association="Self.FK__Hitting_S__Playe__04E4BC85">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="Hitting_Stats" EntitySet="Hitting_Stats" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pitching___Playe__07C12930" Association="Self.FK__Pitching___Playe__07C12930">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="Pitching_Stats" EntitySet="Pitching_Stats" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GabeTest_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Hitting_Stats">
+          <Key>
+            <PropertyRef Name="HittingStatId" />
+          </Key>
+          <Property Name="HittingStatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GamesPlayed" Type="Int32" />
+          <Property Name="PA" Type="Int32" />
+          <Property Name="Hits" Type="Int32" />
+          <Property Name="DB" Type="Int32" />
+          <Property Name="TRP" Type="Int32" />
+          <Property Name="HR" Type="Int32" />
+          <Property Name="SB" Type="Int32" />
+          <Property Name="CS" Type="Int32" />
+          <Property Name="BB" Type="Int32" />
+          <Property Name="SO" Type="Int32" />
+          <Property Name="BA" Type="Decimal" Precision="4" Scale="3" />
+          <Property Name="OPB" Type="Decimal" Precision="4" Scale="3" />
+          <Property Name="SLG" Type="Decimal" Precision="4" Scale="3" />
+          <Property Name="OPS" Type="Decimal" Precision="4" Scale="3" />
+          <Property Name="PlayerId" Type="Int32" />
+          <Property Name="StatYear" Type="Int32" />
+          <NavigationProperty Name="Player" Relationship="Self.FK__Hitting_S__Playe__04E4BC85" FromRole="Hitting_Stats" ToRole="Player" />
+        </EntityType>
+        <EntityType Name="Pitching_Stats">
+          <Key>
+            <PropertyRef Name="PitchingStatId" />
+          </Key>
+          <Property Name="PitchingStatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="statYear" Type="Int32" />
+          <Property Name="W" Type="Int32" />
+          <Property Name="L" Type="Int32" />
+          <Property Name="WLPECT" Type="Decimal" Precision="4" Scale="3" />
+          <Property Name="ERA" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="WHIP" Type="Decimal" Precision="4" Scale="1" />
+          <Property Name="G" Type="Int32" />
+          <Property Name="GS" Type="Int32" />
+          <Property Name="CG" Type="Int32" />
+          <Property Name="SHO" Type="Int32" />
+          <Property Name="SV" Type="Int32" />
+          <Property Name="InningsPitched" Type="Decimal" Precision="4" Scale="1" />
+          <Property Name="H" Type="Int32" />
+          <Property Name="R" Type="Int32" />
+          <Property Name="ER" Type="Int32" />
+          <Property Name="HR" Type="Int32" />
+          <Property Name="BB" Type="Int32" />
+          <Property Name="IBB" Type="Int32" />
+          <Property Name="SO" Type="Int32" />
+          <Property Name="HBP" Type="Int32" />
+          <Property Name="PlayerId" Type="Int32" />
+          <NavigationProperty Name="Player" Relationship="Self.FK__Pitching___Playe__07C12930" FromRole="Pitching_Stats" ToRole="Player" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="PlayerId" />
+          </Key>
+          <Property Name="PlayerId" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="Postion" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="YearStarted" Type="Int32" />
+          <Property Name="YearEnded" Type="Int32" />
+          <NavigationProperty Name="Hitting_Stats" Relationship="Self.FK__Hitting_S__Playe__04E4BC85" FromRole="Player" ToRole="Hitting_Stats" />
+          <NavigationProperty Name="Pitching_Stats" Relationship="Self.FK__Pitching___Playe__07C12930" FromRole="Player" ToRole="Pitching_Stats" />
+        </EntityType>
+        <Association Name="FK__Hitting_S__Playe__04E4BC85">
+          <End Role="Player" Type="Self.Player" Multiplicity="0..1" />
+          <End Role="Hitting_Stats" Type="Self.Hitting_Stats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="PlayerId" />
+            </Principal>
+            <Dependent Role="Hitting_Stats">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pitching___Playe__07C12930">
+          <End Role="Player" Type="Self.Player" Multiplicity="0..1" />
+          <End Role="Pitching_Stats" Type="Self.Pitching_Stats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="PlayerId" />
+            </Principal>
+            <Dependent Role="Pitching_Stats">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Gabe_DB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Hitting_Stats" EntityType="Self.Hitting_Stats" />
+          <EntitySet Name="Pitching_Stats" EntityType="Self.Pitching_Stats" />
+          <EntitySet Name="Players" EntityType="Self.Player" />
+          <AssociationSet Name="FK__Hitting_S__Playe__04E4BC85" Association="Self.FK__Hitting_S__Playe__04E4BC85">
+            <End Role="Player" EntitySet="Players" />
+            <End Role="Hitting_Stats" EntitySet="Hitting_Stats" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pitching___Playe__07C12930" Association="Self.FK__Pitching___Playe__07C12930">
+            <End Role="Player" EntitySet="Players" />
+            <End Role="Pitching_Stats" EntitySet="Pitching_Stats" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GabeTest_DBModelStoreContainer" CdmEntityContainer="Gabe_DB">
+          <EntitySetMapping Name="Hitting_Stats">
+            <EntityTypeMapping TypeName="GabeTest_DBModel.Hitting_Stats">
+              <MappingFragment StoreEntitySet="Hitting_Stats">
+                <ScalarProperty Name="HittingStatId" ColumnName="HittingStatId" />
+                <ScalarProperty Name="GamesPlayed" ColumnName="GamesPlayed" />
+                <ScalarProperty Name="PA" ColumnName="PA" />
+                <ScalarProperty Name="Hits" ColumnName="Hits" />
+                <ScalarProperty Name="DB" ColumnName="DB" />
+                <ScalarProperty Name="TRP" ColumnName="TRP" />
+                <ScalarProperty Name="HR" ColumnName="HR" />
+                <ScalarProperty Name="SB" ColumnName="SB" />
+                <ScalarProperty Name="CS" ColumnName="CS" />
+                <ScalarProperty Name="BB" ColumnName="BB" />
+                <ScalarProperty Name="SO" ColumnName="SO" />
+                <ScalarProperty Name="BA" ColumnName="BA" />
+                <ScalarProperty Name="OPB" ColumnName="OPB" />
+                <ScalarProperty Name="SLG" ColumnName="SLG" />
+                <ScalarProperty Name="OPS" ColumnName="OPS" />
+                <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+                <ScalarProperty Name="StatYear" ColumnName="StatYear" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pitching_Stats">
+            <EntityTypeMapping TypeName="GabeTest_DBModel.Pitching_Stats">
+              <MappingFragment StoreEntitySet="Pitching_Stats">
+                <ScalarProperty Name="PitchingStatId" ColumnName="PitchingStatId" />
+                <ScalarProperty Name="statYear" ColumnName="statYear" />
+                <ScalarProperty Name="W" ColumnName="W" />
+                <ScalarProperty Name="L" ColumnName="L" />
+                <ScalarProperty Name="WLPECT" ColumnName="WLPECT" />
+                <ScalarProperty Name="ERA" ColumnName="ERA" />
+                <ScalarProperty Name="WHIP" ColumnName="WHIP" />
+                <ScalarProperty Name="G" ColumnName="G" />
+                <ScalarProperty Name="GS" ColumnName="GS" />
+                <ScalarProperty Name="CG" ColumnName="CG" />
+                <ScalarProperty Name="SHO" ColumnName="SHO" />
+                <ScalarProperty Name="SV" ColumnName="SV" />
+                <ScalarProperty Name="InningsPitched" ColumnName="InningsPitched" />
+                <ScalarProperty Name="H" ColumnName="H" />
+                <ScalarProperty Name="R" ColumnName="R" />
+                <ScalarProperty Name="ER" ColumnName="ER" />
+                <ScalarProperty Name="HR" ColumnName="HR" />
+                <ScalarProperty Name="BB" ColumnName="BB" />
+                <ScalarProperty Name="IBB" ColumnName="IBB" />
+                <ScalarProperty Name="SO" ColumnName="SO" />
+                <ScalarProperty Name="HBP" ColumnName="HBP" />
+                <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Players">
+            <EntityTypeMapping TypeName="GabeTest_DBModel.Player">
+              <MappingFragment StoreEntitySet="Player">
+                <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Postion" ColumnName="Postion" />
+                <ScalarProperty Name="YearStarted" ColumnName="YearStarted" />
+                <ScalarProperty Name="YearEnded" ColumnName="YearEnded" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
