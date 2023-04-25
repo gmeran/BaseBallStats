@@ -1,0 +1,136 @@
+﻿@model IEnumerable<BaseBall_Stats.Models.Pitching_Stats>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.statYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.W)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.L)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WLPECT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ERA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WHIP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.G)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SHO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InningsPitched)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.H)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.R)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ER)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IBB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HBP)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.statYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.W)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.L)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WLPECT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ERA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WHIP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.G)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SHO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InningsPitched)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.H)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.R)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ER)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IBB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HBP)
+        </td>
+    </tr>
+}
+
+</table>

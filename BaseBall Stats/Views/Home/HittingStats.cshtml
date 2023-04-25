@@ -1,0 +1,124 @@
+﻿@model IEnumerable<BaseBall_Stats.Models.Hitting_Stats>
+
+<p>
+    @Html.ActionLink("Add New Stats Record", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StatYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GamesPlayed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.R)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hits)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RBI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OPB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SLG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OPS)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.StatYear)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.GamesPlayed)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PA)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AB)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.R)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Hits)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DB)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TRP)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.HR)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RBI)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SB)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CS)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BB)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SO)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BA)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OPB)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SLG)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OPS)
+    </td>
+</tr>
+}
+
+</table>

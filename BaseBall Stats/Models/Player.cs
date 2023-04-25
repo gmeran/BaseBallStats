@@ -17,7 +17,7 @@ namespace BaseBall_Stats.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Player()
         {
-            this.Hitting_Stats = new HashSet<Hitting_Stats>();
+            //this.Hitting_Stats = new HashSet<Hitting_Stats>();
             this.Pitching_Stats = new HashSet<Pitching_Stats>();
         }
     
@@ -29,8 +29,8 @@ namespace BaseBall_Stats.Models
         public Nullable<int> YearEnded { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Hitting_Stats> Hitting_Stats { get; set; }
+        public virtual Hitting_Stats Hitting_Stats { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pitching_Stats> Pitching_Stats { get; set; }
+        public virtual IEnumerable<Pitching_Stats> Pitching_Stats { get; set; }
     }
 }

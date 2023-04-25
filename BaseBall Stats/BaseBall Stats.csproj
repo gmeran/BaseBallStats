@@ -132,29 +132,29 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BaseBallModel.Context.cs">
+    <Compile Include="Models\BasbeBallModel1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BaseBallModel.Context.tt</DependentUpon>
+      <DependentUpon>BasbeBallModel1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BaseBallModel.cs">
+    <Compile Include="Models\BasbeBallModel1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BaseBallModel.tt</DependentUpon>
+      <DependentUpon>BasbeBallModel1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BaseBallModel.Designer.cs">
+    <Compile Include="Models\BasbeBallModel1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BaseBallModel.edmx</DependentUpon>
+      <DependentUpon>BasbeBallModel1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Hitting_Stats.cs">
-      <DependentUpon>BaseBallModel.tt</DependentUpon>
+      <DependentUpon>BasbeBallModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Pitching_Stats.cs">
-      <DependentUpon>BaseBallModel.tt</DependentUpon>
+      <DependentUpon>BasbeBallModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Player.cs">
-      <DependentUpon>BaseBallModel.tt</DependentUpon>
+      <DependentUpon>BasbeBallModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PlayerViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -168,24 +168,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\BaseBallModel.Context.tt">
+    <Content Include="Models\BasbeBallModel1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>BaseBallModel.Context.cs</LastGenOutput>
-      <DependentUpon>BaseBallModel.edmx</DependentUpon>
+      <DependentUpon>BasbeBallModel1.edmx</DependentUpon>
+      <LastGenOutput>BasbeBallModel1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\BaseBallModel.tt">
+    <Content Include="Models\BasbeBallModel1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BaseBallModel.edmx</DependentUpon>
-      <LastGenOutput>BaseBallModel.cs</LastGenOutput>
+      <DependentUpon>BasbeBallModel1.edmx</DependentUpon>
+      <LastGenOutput>BasbeBallModel1.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\BaseBallModel.edmx">
+    <EntityDeploy Include="Models\BasbeBallModel1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BaseBallModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>BasbeBallModel1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\BaseBallModel.edmx.diagram">
-      <DependentUpon>BaseBallModel.edmx</DependentUpon>
+    <Content Include="Models\BasbeBallModel1.edmx.diagram">
+      <DependentUpon>BasbeBallModel1.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -212,6 +212,8 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\HittingStats.cshtml" />
+    <Content Include="Views\Home\PitchingStats.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

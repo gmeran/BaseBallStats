@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a2f375cfd3fe4e8db67f64d2b708f6b0" Name="Diagram1">
+      <Diagram DiagramId="b1a94fa2969f4461a33c6386cff2d658" Name="Diagram1">
         <EntityTypeShape EntityType="GabeTest_DBModel.Hitting_Stats" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="GabeTest_DBModel.Pitching_Stats" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GabeTest_DBModel.Player" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabeTest_DBModel.Pitching_Stats" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GabeTest_DBModel.Player" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="GabeTest_DBModel.FK__Hitting_S__Playe__04E4BC85" ManuallyRouted="false" />
         <AssociationConnector Association="GabeTest_DBModel.FK__Pitching___Playe__07C12930" ManuallyRouted="false" />
       </Diagram>

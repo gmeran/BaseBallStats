@@ -26,6 +26,9 @@
           <Property Name="OPS" Type="decimal" Precision="4" Scale="3" />
           <Property Name="PlayerId" Type="int" />
           <Property Name="StatYear" Type="int" />
+          <Property Name="AB" Type="int" />
+          <Property Name="R" Type="int" />
+          <Property Name="RBI" Type="int" />
         </EntityType>
         <EntityType Name="Pitching_Stats">
           <Key>
@@ -128,6 +131,9 @@
           <Property Name="OPS" Type="Decimal" Precision="4" Scale="3" />
           <Property Name="PlayerId" Type="Int32" />
           <Property Name="StatYear" Type="Int32" />
+          <Property Name="AB" Type="Int32" />
+          <Property Name="R" Type="Int32" />
+          <Property Name="RBI" Type="Int32" />
           <NavigationProperty Name="Player" Relationship="Self.FK__Hitting_S__Playe__04E4BC85" FromRole="Hitting_Stats" ToRole="Player" />
         </EntityType>
         <EntityType Name="Pitching_Stats">
@@ -195,7 +201,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Gabe_DB" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="GabeDB2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Hitting_Stats" EntityType="Self.Hitting_Stats" />
           <EntitySet Name="Pitching_Stats" EntityType="Self.Pitching_Stats" />
           <EntitySet Name="Players" EntityType="Self.Player" />
@@ -213,7 +219,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="GabeTest_DBModelStoreContainer" CdmEntityContainer="Gabe_DB">
+        <EntityContainerMapping StorageEntityContainer="GabeTest_DBModelStoreContainer" CdmEntityContainer="GabeDB2">
           <EntitySetMapping Name="Hitting_Stats">
             <EntityTypeMapping TypeName="GabeTest_DBModel.Hitting_Stats">
               <MappingFragment StoreEntitySet="Hitting_Stats">
@@ -234,6 +240,9 @@
                 <ScalarProperty Name="OPS" ColumnName="OPS" />
                 <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
                 <ScalarProperty Name="StatYear" ColumnName="StatYear" />
+                <ScalarProperty Name="AB" ColumnName="AB" />
+                <ScalarProperty Name="R" ColumnName="R" />
+                <ScalarProperty Name="RBI" ColumnName="RBI" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

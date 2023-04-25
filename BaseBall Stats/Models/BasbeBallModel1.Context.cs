@@ -13,10 +13,10 @@ namespace BaseBall_Stats.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Gabe_DB : DbContext
+    public partial class GabeDB2 : DbContext
     {
-        public Gabe_DB()
-            : base("name=Gabe_DB")
+        public GabeDB2()
+            : base("name=GabeDB2")
         {
         }
     
