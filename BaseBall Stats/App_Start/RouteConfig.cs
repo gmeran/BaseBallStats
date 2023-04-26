@@ -24,6 +24,17 @@ namespace BaseBall_Stats
                url: "{controller}/{action}/{id}",
                defaults: new { controller = "Home", action = "HittingStats", id = UrlParameter.Optional }
            );
+
+            routes.MapRoute(
+              name: "CreatePositionPlayer",
+              url: "{controller}/{action}/{id}",
+              defaults: new { controller = "Home", action = "CreatePositionPlayer", id = UrlParameter.Optional }
+          );
+            routes.MapRoute(
+              name: "CreatePitchingPlayer",
+              url: "{controller}/{action}/{id}",
+              defaults: new { controller = "Home", action = "CreatePitchingPlayer", id = UrlParameter.Optional }
+          );
         }
     }
 }

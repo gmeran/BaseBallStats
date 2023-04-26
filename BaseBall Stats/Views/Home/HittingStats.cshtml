@@ -1,8 +1,13 @@
 ﻿@model IEnumerable<BaseBall_Stats.Models.Hitting_Stats>
 
 <p>
-    @Html.ActionLink("Add New Stats Record", "Create")
+    @Html.ActionLink("Add New Stats Record", "Add Stat")
 </p>
+<style>
+    table, th, td {
+        border: 1px solid;
+    }
+</style>
 <table class="table">
     <tr>
         <th>
@@ -59,7 +64,9 @@
         <th>
             @Html.DisplayNameFor(model => model.OPS)
         </th>
-        <th></th>
+        <th>
+            Options
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -117,6 +124,10 @@
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.OPS)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { playerid = item.PlayerId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.PlayerId })
     </td>
 </tr>
 }

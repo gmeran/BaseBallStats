@@ -1,8 +1,13 @@
 ﻿@model IEnumerable<BaseBall_Stats.Models.Pitching_Stats>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Stat Record", "Add Stat")
 </p>
+<style>
+    table, th, td {
+        border: 1px solid;
+    }
+</style>
 <table class="table">
     <tr>
         <th>
@@ -65,72 +70,78 @@
         <th>
             @Html.DisplayNameFor(model => model.HBP)
         </th>
-        <th></th>
+        <th>
+            Options
+        </th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.statYear)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.W)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.L)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WLPECT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ERA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WHIP)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.G)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GS)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CG)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SHO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SV)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InningsPitched)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.H)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.R)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ER)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HR)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BB)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IBB)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HBP)
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.statYear)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.W)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.L)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.WLPECT)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ERA)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.WHIP)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.G)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.GS)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CG)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SHO)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SV)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.InningsPitched)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.H)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.R)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ER)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.HR)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BB)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IBB)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SO)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.HBP)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { playerid = item.PlayerId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.PlayerId })
+    </td>
+</tr>
 }
 
 </table>

@@ -147,6 +147,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BasbeBallModel1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\CreateHittingStatsModel.cs" />
+    <Compile Include="Models\CreatePitcherPlayerModel.cs" />
+    <Compile Include="Models\CreatePitchingStatsModel.cs" />
+    <Compile Include="Models\CreatePositionPlayerModel.cs" />
     <Compile Include="Models\Hitting_Stats.cs">
       <DependentUpon>BasbeBallModel1.tt</DependentUpon>
     </Compile>
@@ -214,6 +218,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\HittingStats.cshtml" />
     <Content Include="Views\Home\PitchingStats.cshtml" />
+    <Content Include="Views\Home\CreatePostionPlayer.cshtml" />
+    <Content Include="Views\Home\CreatePlayer.cshtml" />
+    <Content Include="Views\Home\CreatePitchingPlayer.cshtml" />
+    <Content Include="Views\Home\CreateHittingStats.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

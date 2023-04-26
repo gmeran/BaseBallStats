@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<BaseBall_Stats.Models.Player>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Player", "CreatePlayer")
 </p>
 <style>
     table,th,td{
@@ -48,7 +48,6 @@
             @Html.DisplayFor(modelItem => item.YearEnded)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PlayerId }) |
             @Html.ActionLink("Stats", "GetStats", new { playerid =item.PlayerId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.PlayerId })
         </td>

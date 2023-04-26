@@ -136,6 +136,142 @@ namespace BaseBall_Stats.Controllers
             return pitchingStats.ToList();
         }
 
+        [HttpGet]
+        public ActionResult CreatePlayer()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult CreatePostionPlayer()
+        {
+            return View();
+        }
+        [HttpPost]
+        [HandleError]
+        public ActionResult CreatePostionPlayer(CreatePositionPlayerModel model)
+        {
+            var connection = db.Database.Connection;
+            var exist = db.Database.Exists();
+            if (exist && connection != null)
+            {
+                try
+                {
+                    Player player = new Player();
+                    player.PlayerId = model.PlayerId;
+                    player.FirstName = model.FirstName;
+                    player.LastName = model.LastName;
+                    player.Postion = model.Postion;
+                    player.YearStarted = model.YearStarted;
+                    player.YearEnded = model.YearEnded;
+
+                    db.Players.Add(player);
+                    db.SaveChanges();
+                    ModelState.Clear();
+                    return Redirect("CreateHittingStats");
+
+                }
+                catch(Exception ex)
+                {
+                    throw new Exception(ex.ToString());
+                }
+            }
+            else
+            {
+                throw new Exception("Please Check if database is running properly ");
+            }
+        }
+
+        [HttpGet]
+        public ActionResult CreatePitchingPlayer()
+        {
+            return View();
+        }
+        [HttpPost]
+        [HandleError]
+        public ActionResult CreatePitchingPlayer(CreatePitcherPlayerModel model)
+        {
+            var connection = db.Database.Connection;
+            var exist = db.Database.Exists();
+            if (exist && connection != null)
+            {
+                try
+                {
+                    Player player = new Player();
+                    player.PlayerId = model.PlayerId;
+                    player.FirstName = model.FirstName;
+                    player.LastName = model.LastName;
+                    player.Postion = model.Postion;
+                    player.YearStarted = model.YearStarted;
+                    player.YearEnded = model.YearEnded;
+
+                    db.Players.Add(player);
+                    db.SaveChanges();
+                    return Redirect("CreatePitchingStats");
+
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.ToString());
+                }
+            }
+            else
+            {
+                throw new Exception("Please Check if database is running properly ");
+            }
+        }
+
+        [HttpGet]
+        public ActionResult CreateHittingStats()
+        {
+            return View();
+        }
+        [HttpPost]
+        [HandleError]
+        public ActionResult CreateHittingStats(CreateHittingStatsModel model)
+        {
+            var connection = db.Database.Connection;
+            var exist = db.Database.Exists();
+            if (exist && connection != null)
+            {
+                try 
+                {
+                    Hitting_Stats stats = new Hitting_Stats();
+                    stats.StatYear = model.StatYear;
+                    stats.GamesPlayed = model.GamesPlayed;
+                    stats.AB = model.AB;
+                    stats.PA = model.PA;
+                    stats.Hits = model.Hits;
+                    stats.DB = model.DB;
+                    stats.TRP = model.TRP;
+                    stats.HR = model.HR;
+                    stats.RBI = model.RBI;
+                    stats.R = model.R;
+                    stats.SB = model.SB;
+                    stats.CS = model.CS;
+                    stats.SO = model.SO;
+                    stats.BB = model.BB;
+                    stats.BA = model.BA;
+                    stats.OPB = model.OPB;
+                    stats.SLG = model.SLG;
+                    stats.OPS = model.OPS;
+                    stats.PlayerId = model.PlayerId;
+
+                    db.Hitting_Stats.Add(stats);
+                    db.SaveChanges();
+                    return Redirect("Index");
+
+                }
+                catch(Exception ex)
+                {
+                    throw new Exception(ex.ToString());
+                }
+            }
+            else
+            {
+                throw new Exception("Please Check if database is running properly ");
+            }
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
