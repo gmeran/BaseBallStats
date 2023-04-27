@@ -324,6 +324,27 @@ namespace BaseBall_Stats.Controllers
                 throw new Exception("Please Check if database is running properly ");
             }
         }
+
+        [HttpGet]
+        public ActionResult AddStats(int? playerId)
+        {
+            var hitQuery = db.Hitting_Stats.Where(a => a.PlayerId == playerId);
+            var pitchQuery = db.Pitching_Stats.Where(a => a.PlayerId == playerId);
+
+            if(hitQuery.Any())
+            {
+                return RedirectToAction("CreateHittingStats");
+            }
+            else if(pitchQuery.Any())
+            {
+                return RedirectToAction("CreatePitchingStats");
+            }
+            else
+            {
+                throw new Exception("Unable to Add new Stat");
+            }
+
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

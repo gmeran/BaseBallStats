@@ -1,7 +1,14 @@
 ﻿@model IEnumerable<BaseBall_Stats.Models.Hitting_Stats>
 
+@{
+    var playerId = 0;
+}
+@foreach (var item in Model)
+{
+    playerId = item.PlayerId;
+}
 <p>
-    @Html.ActionLink("Add New Stats Record", "Add Stat")
+    @Html.ActionLink("Add New Stats Record", "AddStats", new { playerId = playerId })
 </p>
 <style>
     table, th, td {
@@ -69,67 +76,68 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.StatYear)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.GamesPlayed)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.PA)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.AB)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.R)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hits)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DB)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TRP)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.HR)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.RBI)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.SB)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CS)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.BB)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.SO)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.BA)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.OPB)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.SLG)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.OPS)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { playerid = item.PlayerId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.PlayerId })
-    </td>
-</tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GamesPlayed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.R)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TRP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RBI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OPB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SLG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OPS)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { playerid = item.PlayerId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PlayerId })
+            </td>
+        </tr>
+    }
 
 </table>

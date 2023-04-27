@@ -35,7 +35,7 @@ namespace BaseBall_Stats.Models
         public Nullable<int> IBB { get; set; }
         public Nullable<int> SO { get; set; }
         public Nullable<int> HBP { get; set; }
-        public Nullable<int> PlayerId { get; set; }
+        public int PlayerId { get; set; }
     
         public virtual Player Player { get; set; }
     }

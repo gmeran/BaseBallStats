@@ -29,7 +29,7 @@ namespace BaseBall_Stats.Models
         public Nullable<decimal> OPB { get; set; }
         public Nullable<decimal> SLG { get; set; }
         public Nullable<decimal> OPS { get; set; }
-        public Nullable<int> PlayerId { get; set; }
+        public int PlayerId { get; set; }
         public Nullable<int> StatYear { get; set; }
         public Nullable<int> AB { get; set; }
         public Nullable<int> R { get; set; }
