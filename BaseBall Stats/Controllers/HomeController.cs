@@ -272,6 +272,58 @@ namespace BaseBall_Stats.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult CreatePitchingStats()
+        {
+            return View();
+        }
+        [HttpPost]
+        [HandleError]
+        public ActionResult CreatePitchingStats(CreatePitchingStatsModel model)
+        {
+            var connection = db.Database.Connection;
+            var exist = db.Database.Exists();
+            if (exist && connection != null)
+            {
+                try
+                {
+                    Pitching_Stats stats = new Pitching_Stats();
+                    stats.statYear = model.statYear;
+                    stats.G = model.G;
+                    stats.W = model.W;
+                    stats.L = stats.L;
+                    stats.WLPECT = model.WLPECT;
+                    stats.ERA = model.ERA;
+                    stats.WHIP = model.WHIP;
+                    stats.InningsPitched = model.InningsPitched;
+                    stats.GS = model.GS;
+                    stats.CG = model.CG;
+                    stats.SV = model.SV;
+                    stats.SHO = model.SHO;
+                    stats.H = model.H;
+                    stats.HR = model.HR;
+                    stats.SO = model.SO;
+                    stats.BB = model.BB;
+                    stats.IBB = model.IBB;
+                    stats.HBP = model.HBP;
+                    stats.R = model.R;
+                    stats.ER = model.ER;
+                    stats.PlayerId = model.PlayerId;
+
+                    db.Pitching_Stats.Add(stats);
+                    db.SaveChanges();
+                    return Redirect("Index");
+                }
+                catch(Exception ex)
+                {
+                    throw new Exception(ex.ToString());
+                }
+            }
+            else
+            {
+                throw new Exception("Please Check if database is running properly ");
+            }
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
