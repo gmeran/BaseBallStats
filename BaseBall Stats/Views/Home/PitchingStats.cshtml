@@ -147,8 +147,8 @@
                 @Html.DisplayFor(modelItem => item.HBP)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { playerid = item.PlayerId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.PlayerId })
+                @Html.ActionLink("Edit", "Edit", new { playerid = item.PitchingStatId }) |
+                @Html.ActionLink("Delete", "DeletePitchingStat", new { id = item.PitchingStatId, playerId = item.PlayerId })
             </td>
         </tr>
     }

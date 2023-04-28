@@ -442,7 +442,146 @@ namespace BaseBall_Stats.Controllers
                 throw new Exception("Please Check if database is running properly ");
             }
         }
-      
+
+        [HttpGet]
+        [HandleError]
+        public ActionResult DeleteHittingStat(int? id)
+        {
+            var connection = db.Database.Connection;
+            var exist = db.Database.Exists();
+            if (exist && connection != null)
+            {
+                if (string.IsNullOrEmpty(id.ToString()))
+                {
+                    throw new Exception("Unale to retrieve stat information");
+                }
+                try
+                {
+                    Hitting_Stats hittingStat = db.Hitting_Stats.Single(x => x.HittingStatId == id);
+
+                    return View(hittingStat);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.ToString());
+                }
+
+            }
+            else
+            {
+                throw new Exception("Please Check if database is running properly ");
+            }
+        }
+
+        [HttpPost]
+        [HandleError]
+        public ActionResult DeleteHittingStat(int id, int playerId)
+        {
+            var connection = db.Database.Connection;
+            var exist = db.Database.Exists();
+
+            if (exist && connection != null)
+            {
+                if (string.IsNullOrEmpty(id.ToString()))
+                {
+
+                    throw new Exception("Unable to delete stat");
+                }
+
+
+                try
+                {
+
+                    Hitting_Stats hittingStat = db.Hitting_Stats.Single(x => x.HittingStatId == id);
+                    db.Hitting_Stats.Remove(hittingStat);
+                    db.SaveChanges();
+
+                    return RedirectToAction("HittingStats",new { playerId = playerId });
+                }
+
+                catch (SqlException ex)
+                {
+
+                    throw new Exception(ex.ToString());
+
+                }
+            }
+            else
+            {
+                throw new Exception("Please Check if database is running properly ");
+            }
+        }
+
+        [HttpGet]
+        [HandleError]
+        public ActionResult DeletePitchingStat(int? id)
+        {
+            var connection = db.Database.Connection;
+            var exist = db.Database.Exists();
+            if (exist && connection != null)
+            {
+                if (string.IsNullOrEmpty(id.ToString()))
+                {
+                    throw new Exception("Unale to retrieve stat information");
+                }
+                try
+                {
+                    Pitching_Stats pitchingStat = db.Pitching_Stats.Single(x => x.PitchingStatId == id);
+
+                    return View(pitchingStat);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.ToString());
+                }
+
+            }
+            else
+            {
+                throw new Exception("Please Check if database is running properly ");
+            }
+        }
+
+        [HttpPost]
+        [HandleError]
+        public ActionResult DeletePitchingStat(int id, int playerId)
+        {
+            var connection = db.Database.Connection;
+            var exist = db.Database.Exists();
+
+            if (exist && connection != null)
+            {
+                if (string.IsNullOrEmpty(id.ToString()))
+                {
+
+                    throw new Exception("Unable to delete stat");
+                }
+
+
+                try
+                {
+
+                    Pitching_Stats pitchingStat = db.Pitching_Stats.Single(x => x.PitchingStatId == id);
+                    db.Pitching_Stats.Remove(pitchingStat);
+                    db.SaveChanges();
+
+                    return RedirectToAction("HittingStats", new { playerId = playerId });
+                }
+
+                catch (SqlException ex)
+                {
+
+                    throw new Exception(ex.ToString());
+
+                }
+            }
+            else
+            {
+                throw new Exception("Please Check if database is running properly ");
+            }
+        }
+
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

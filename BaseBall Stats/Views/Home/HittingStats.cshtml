@@ -134,8 +134,8 @@
                 @Html.DisplayFor(modelItem => item.OPS)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { playerid = item.PlayerId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.PlayerId })
+                @Html.ActionLink("Edit", "Edit", new { id = item.HittingStatId }) |
+                @Html.ActionLink("Delete", "DeleteHittingStat", new { id = item.HittingStatId, playerId = item.PlayerId})
             </td>
         </tr>
     }

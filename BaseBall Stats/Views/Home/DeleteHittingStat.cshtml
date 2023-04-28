@@ -1,0 +1,178 @@
+﻿@model BaseBall_Stats.Models.Hitting_Stats
+
+<h3>Are you sure you want to delete this stat?</h3>
+<div>
+    <h4>Hitting_Stats</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HittingStatId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HittingStatId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GamesPlayed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GamesPlayed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hits)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hits)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OPB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OPB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SLG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SLG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OPS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OPS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlayerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.R)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.R)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RBI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RBI)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
