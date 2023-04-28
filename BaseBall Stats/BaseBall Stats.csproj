@@ -223,6 +223,7 @@
     <Content Include="Views\Home\CreatePitchingPlayer.cshtml" />
     <Content Include="Views\Home\CreateHittingStats.cshtml" />
     <Content Include="Views\Home\CreatePitchingStats.cshtml" />
+    <Content Include="Views\Home\DeletePlayer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

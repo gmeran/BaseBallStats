@@ -50,7 +50,7 @@
         </td>
         <td>
             @Html.ActionLink("Stats", "GetStats", new { playerid =item.PlayerId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PlayerId })
+            @Html.ActionLink("Delete", "DeletePlayer", new { playerid =item.PlayerId })
         </td>
     </tr>
 }
