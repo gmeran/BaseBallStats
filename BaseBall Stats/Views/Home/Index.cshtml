@@ -4,6 +4,12 @@
 <p>
     @Html.ActionLink("Create New Player", "CreatePlayer")
 </p>
+<p>
+    @Html.ActionLink("Create Pitching Stat", "CreatePitchingStats")
+</p>
+<p>
+    @Html.ActionLink("Create Hitting Stat", "CreateHittingStats")
+</p>
 <style>
     table,th,td{
         border: 1px solid;
@@ -49,8 +55,9 @@
             @Html.DisplayFor(modelItem => item.YearEnded)
         </td>
         <td>
-            @Html.ActionLink("Stats", "GetStats", new { playerid =item.PlayerId }) |
-            @Html.ActionLink("Delete", "DeletePlayer", new { playerid =item.PlayerId })
+            @Html.ActionLink("Edit", "EditPlayer", new {playerId = item.PlayerId}) |
+            @Html.ActionLink("Stats", "GetStats", new { playerid = item.PlayerId }) |
+            @Html.ActionLink("Delete", "DeletePlayer", new { playerid = item.PlayerId })
         </td>
     </tr>
 }

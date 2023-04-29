@@ -226,6 +226,9 @@
     <Content Include="Views\Home\DeletePlayer.cshtml" />
     <Content Include="Views\Home\DeleteHittingStat.cshtml" />
     <Content Include="Views\Home\DeletePitchingStat.cshtml" />
+    <Content Include="Views\Home\EditPlayer.cshtml" />
+    <Content Include="Views\Home\EditHittingStat.cshtml" />
+    <Content Include="Views\Home\EditPitchingStat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

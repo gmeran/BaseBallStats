@@ -47,7 +47,7 @@ namespace BaseBall_Stats.Controllers
             var exist = db.Database.Exists();
             if(exist && connection !=null)
             {
-                if (GetHittingStats(playerId).Any())
+                if ((bool)GetHittingStats(playerId)?.Any())
                 {
                     try
                     {
@@ -58,7 +58,7 @@ namespace BaseBall_Stats.Controllers
                         throw new Exception(ex.ToString());
                     }
                 }
-                else if(GetPitchingStats(playerId).Any())
+                else if((bool)(GetPitchingStats(playerId)?.Any()))
                 {
                     try
                     {
@@ -551,7 +551,7 @@ namespace BaseBall_Stats.Controllers
 
             if (exist && connection != null)
             {
-                if (string.IsNullOrEmpty(id.ToString()))
+                if (string.IsNullOrEmpty(id.ToString()) && string.IsNullOrEmpty(playerId.ToString()))
                 {
 
                     throw new Exception("Unable to delete stat");
@@ -580,6 +580,270 @@ namespace BaseBall_Stats.Controllers
                 throw new Exception("Please Check if database is running properly ");
             }
         }
+
+        [HttpGet]
+        [HandleError]
+        public ActionResult EditPlayer(int? playerId)
+        {
+            var connection = db.Database.Connection;
+            var exist = db.Database.Exists();
+            if (exist && connection != null)
+            {
+                if (playerId == null)
+                {
+
+                    throw new Exception("PlayerId was not found can't not display information to update");
+                }
+                else
+                {
+                    try
+                    {
+
+                        Player player = db.Players.Single(x => x.PlayerId == playerId);
+                        return View(player);
+                    }
+                    catch (SqlException ex)
+                    {
+
+                        throw new Exception(ex.ToString());
+
+                    }
+                }
+            }
+            else
+            {
+                throw new Exception("Please Check if database is running properly ");
+            }
+        }
+
+        [HttpPost]
+        [HandleError]
+        public ActionResult Editplayer(int playerId, Player player)
+        {
+            var connection = db.Database.Connection;
+            var exist = db.Database.Exists();
+            if (exist && connection != null)
+            {
+                if (string.IsNullOrEmpty(playerId.ToString()))
+                {
+
+                    throw new Exception("This Player does not exist");
+                }
+                else
+                {
+                    try
+                    {
+                        var playerDB = db.Players.Where(x => x.PlayerId == playerId).FirstOrDefault();
+
+                        playerDB.FirstName = player.FirstName;
+                        playerDB.LastName = player.LastName;
+                        playerDB.Postion = player.Postion;
+                        playerDB.YearStarted = player.YearStarted;
+                        playerDB.YearEnded = player.YearEnded;
+
+                        db.SaveChanges();
+
+                        return RedirectToAction("Index");
+                    }
+                    catch (SqlException ex)
+                    {
+
+                        throw new Exception(ex.ToString());
+                    }
+                }
+            }
+            else
+            {
+                throw new Exception("Please Check if database is running properly ");
+            }
+
+        }
+    
+      
+
+        [HttpGet]
+        [HandleError]
+        public ActionResult EditHittingStat(int? id)
+        {
+            var connection = db.Database.Connection;
+            var exist = db.Database.Exists();
+            if (exist && connection != null)
+            {
+                if (string.IsNullOrEmpty(id.ToString()))
+                {
+                    throw new Exception("PlayerId was not found can't not display information to update");
+                }
+                else
+                {
+                    try
+                    {
+
+                        Hitting_Stats hittingStat = db.Hitting_Stats.Single(x => x.HittingStatId == id);
+                        return View(hittingStat);
+                    }
+                    catch (SqlException ex)
+                    {
+
+                        throw new Exception(ex.ToString());
+
+                    }
+                }
+            }
+            else
+            {
+                throw new Exception("Please Check if database is running properly ");
+            }
+        }
+
+        [HttpPost]
+        [HandleError]
+        public ActionResult EditHittingStat(int? id, Hitting_Stats hitting_Stat, int? playerId)
+        {
+            var connection = db.Database.Connection;
+            var exist = db.Database.Exists();
+            if (exist && connection != null)
+            {
+                if (string.IsNullOrEmpty(id.ToString()) && string.IsNullOrEmpty(playerId.ToString()))
+                {
+                    throw new Exception("Unable to delete stat record");
+                }
+                else
+                {
+                    try
+                    {
+                        var hittingStatDb = db.Hitting_Stats.Where(x => x.HittingStatId == id).FirstOrDefault();
+                        hittingStatDb.StatYear = hitting_Stat.StatYear;
+                        hittingStatDb.GamesPlayed = hitting_Stat.GamesPlayed;
+                        hittingStatDb.AB = hitting_Stat.AB;
+                        hittingStatDb.PA = hitting_Stat.PA;
+                        hittingStatDb.R = hitting_Stat.R;
+                        hittingStatDb.Hits = hitting_Stat.Hits;
+                        hittingStatDb.DB = hitting_Stat.DB;
+                        hittingStatDb.TRP = hitting_Stat.TRP;
+                        hittingStatDb.HR = hitting_Stat.HR;
+                        hittingStatDb.RBI = hitting_Stat.RBI;
+                        hittingStatDb.SB = hitting_Stat.SB;
+                        hittingStatDb.CS = hitting_Stat.CS;
+                        hittingStatDb.SO = hitting_Stat.SO;
+                        hittingStatDb.BB = hitting_Stat.BB;
+                        hittingStatDb.BA = hitting_Stat.BA;
+                        hittingStatDb.OPB = hitting_Stat.OPB;
+                        hittingStatDb.SLG = hitting_Stat.SLG;
+                        hittingStatDb.OPS = hitting_Stat.OPS;
+
+                        db.SaveChanges();
+                        return RedirectToAction("HittingStats", new { playerId = playerId });
+
+
+
+                    }
+                    catch (SqlException ex)
+                    {
+
+                        throw new Exception(ex.ToString());
+
+                    }
+                }
+            }
+            else
+            {
+                throw new Exception("Please Check if database is running properly ");
+            }
+        }
+
+
+        [HttpGet]
+        [HandleError]
+        public ActionResult EditPitchingStat(int? id)
+        {
+            var connection = db.Database.Connection;
+            var exist = db.Database.Exists();
+            if (exist && connection != null)
+            {
+                if (string.IsNullOrEmpty(id.ToString()))
+                {
+                    throw new Exception("PlayerId was not found can't not display information to update");
+                }
+                else
+                {
+                    try
+                    {
+
+                        Pitching_Stats pitchingStat = db.Pitching_Stats.Single(x => x.PitchingStatId == id);
+                        return View(pitchingStat);
+                    }
+                    catch (SqlException ex)
+                    {
+
+                        throw new Exception(ex.ToString());
+
+                    }
+                }
+            }
+            else
+            {
+                throw new Exception("Please Check if database is running properly ");
+            }
+        }
+
+
+        [HttpPost]
+        [HandleError]
+        public ActionResult EditPitchingStat(int? id, int? playerId, Pitching_Stats pitchingStat)
+        {
+            var connection = db.Database.Connection;
+            var exist = db.Database.Exists();
+            if (exist && connection != null)
+            {
+                if (string.IsNullOrEmpty(id.ToString()) && string.IsNullOrEmpty(playerId.ToString()))
+                {
+                    throw new Exception("PlayerId was not found can't not display information to update");
+                }
+                else
+                {
+                    try
+                    {
+
+                        var pitchingStatDb = db.Pitching_Stats.Where(x => x.PitchingStatId == id).FirstOrDefault();
+                        
+                        pitchingStatDb.statYear = pitchingStat.statYear;
+                        pitchingStatDb.G = pitchingStat.G;
+                        pitchingStatDb.GS = pitchingStat.GS;
+                        pitchingStatDb.CG = pitchingStat.CG;
+                        pitchingStatDb.InningsPitched = pitchingStat.InningsPitched;
+                        pitchingStatDb.W = pitchingStat.W;
+                        pitchingStatDb.L = pitchingStat.L;
+                        pitchingStatDb.WLPECT = pitchingStat.WLPECT;
+                        pitchingStatDb.ERA = pitchingStat.ERA;
+                        pitchingStatDb.WHIP = pitchingStat.WHIP;
+                        pitchingStatDb.SHO = pitchingStat.SHO;
+                        pitchingStatDb.SV = pitchingStat.SV;
+                        pitchingStatDb.R = pitchingStat.R;
+                        pitchingStatDb.ER = pitchingStat.ER;
+                        pitchingStatDb.SO = pitchingStat.SO;
+                        pitchingStatDb.H = pitchingStat.H;
+                        pitchingStatDb.HR = pitchingStat.HR;
+                        pitchingStatDb.BB = pitchingStat.BB;
+                        pitchingStatDb.IBB = pitchingStat.IBB;
+                        pitchingStatDb.HBP = pitchingStat.HBP;
+
+                        db.SaveChanges();
+                        return RedirectToAction("PitchingStats", new { playerId = playerId });
+                    }
+                    catch (SqlException ex)
+                    {
+
+                        throw new Exception(ex.ToString());
+
+                    }
+                }
+            }
+            else
+            {
+                throw new Exception("Please Check if database is running properly ");
+            }
+        }
+
 
 
         public ActionResult About()
