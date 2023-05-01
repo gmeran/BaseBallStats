@@ -1,20 +1,39 @@
 ﻿@model IEnumerable<BaseBall_Stats.Models.Player>
 
 
-<p>
-    @Html.ActionLink("Create New Player", "CreatePlayer")
-</p>
-<p>
-    @Html.ActionLink("Create Pitching Stat", "CreatePitchingStats")
-</p>
-<p>
-    @Html.ActionLink("Create Hitting Stat", "CreateHittingStats")
-</p>
+    <input type="button"
+           value="Create New Player"
+           onclick="location.href='@Url.Action("CreatePlayer", "Home")'"
+           style="background-color:lightgreen" />
+    <input type="button"
+           value="Create Pitching Stat"
+           onclick="location.href = '@Url.Action("CreatePitchingStats", "Home")'"
+           style="background-color:lightgreen" />
+
+    <input type="button"
+           value="Create Hitting Stat"
+           onclick="location.href='@Url.Action("CreateHittingStats", "Home")'"
+           style="background-color:lightgreen" />
+
 <style>
     table,th,td{
         border: 1px solid;
+        text-align :center;
+        margin-top : 30px;
+        background-color:white;
+        
+    }
+    body{
+        background-color:bisque;
+    }
+    nav{
+         float: left;
+         width: 200px;
+         height: 250px;
     }
 </style>
+
+
 <table class="table">
     <tr>
         <th>
@@ -55,11 +74,23 @@
             @Html.DisplayFor(modelItem => item.YearEnded)
         </td>
         <td>
-            @Html.ActionLink("Edit", "EditPlayer", new {playerId = item.PlayerId}) |
-            @Html.ActionLink("Stats", "GetStats", new { playerid = item.PlayerId }) |
-            @Html.ActionLink("Delete", "DeletePlayer", new { playerid = item.PlayerId })
+             <input type="button"
+                   value="Edit"
+                   onclick="location.href='@Url.Action("EditPlayer", "Home", new { playerId = item.PlayerId })'"
+                   style="background-color:lightcoral" />
+           |
+            <input type="button"
+                   value="Stats"
+                   onclick="location.href='@Url.Action("GetStats", "Home", new { playerid = item.PlayerId })'"
+                   style="background-color:lightskyblue" />
+           |
+            <input type="button"
+                   value="Delete"
+                   onclick="location.href='@Url.Action("DeletePlayer", "Home", new { playerid = item.PlayerId })'"
+                   style="background-color:orangered" />
         </td>
     </tr>
 }
 
 </table>
+
