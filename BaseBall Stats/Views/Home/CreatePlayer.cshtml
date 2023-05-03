@@ -1,6 +1,15 @@
-﻿<p>
-@Html.ActionLink("Create a new Postion Player", "CreatePostionPlayer")
-</p>
-<p>
-    @Html.ActionLink("Create a new Picther", "CreatePitchingPlayer")
-</p>
+﻿<input type="button"
+       value="Create New Position Player"
+       onclick="location.href='@Url.Action("CreatePostionPlayer", "Home")'"
+       style="background-color:lightgreen" />
+<input type="button"
+       value="Create New Pitcher"
+       onclick="location.href='@Url.Action("CreatePitchingPlayer", "Home")'"
+       style="background-color:lightgreen" />
+
+<style>
+    body {
+        background-color: bisque;
+    }
+
+</style>

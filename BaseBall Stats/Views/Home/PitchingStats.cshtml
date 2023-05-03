@@ -7,13 +7,29 @@
 {
     playerId = item.PlayerId;
 }
-<p>
-    @Html.ActionLink("Add New Stats Record", "AddStats", new { playerId = playerId })
-</p>
+
+<input type="button"
+       value="Add New Stats Record"
+       onclick="location.href = '@Url.Action("AddStats", "Home",new { playerId = playerId })'"
+       style="background-color:lightgreen" />
+
 
 <style>
     table, th, td {
         border: 1px solid;
+        text-align: center;
+        margin-top: 30px;
+        background-color: white;
+    }
+
+    body {
+        background-color: bisque;
+    }
+
+    nav {
+        float: left;
+        width: 200px;
+        height: 250px;
     }
 </style>
 <table class="table">
@@ -147,8 +163,15 @@
                 @Html.DisplayFor(modelItem => item.HBP)
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditPitchingStat", new { id = item.PitchingStatId, playerId =item.PlayerId }) |
-                @Html.ActionLink("Delete", "DeletePitchingStat", new { id = item.PitchingStatId, playerId = item.PlayerId })
+                <input type="button"
+                       value="Edit"
+                       onclick="location.href='@Url.Action("EditPitchingStat", "Home", new { playerId = item.PlayerId })'"
+                       style="background-color:lightcoral" />
+                |
+                <input type="button"
+                       value="Delete"
+                       onclick="location.href='@Url.Action("DeletePitchingStat", "Home", new { playerId = item.PlayerId })'"
+                       style="background-color:orangered" />
             </td>
         </tr>
     }
