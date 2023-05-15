@@ -4,6 +4,12 @@
 {
     @Html.AntiForgeryToken()
 
+    <style>
+        body {
+            background-color: bisque;
+        }
+    </style>
+
     <div class="form-horizontal">
         <h4>CreatePitcherPlayerModel</h4>
         <hr />
@@ -58,15 +64,16 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default"  onclick= @Html.ActionLink("Create a new Postion Player", "CreatePostionPlayer")/>
+                <input type="submit" value="Create" class="btn btn-default" onclick=@Html.ActionLink("Create a new Postion Player", "CreatePostionPlayer") />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+<input type="button"
+       value="Back to List"
+       onclick="location.href='@Url.Action("Index", "Home")'"
+       style="background-color:lightgreen" />
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
