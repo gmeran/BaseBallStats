@@ -157,12 +157,12 @@
             <td>
                 <input type="button"
                        value="Edit"
-                       onclick="location.href='@Url.Action("EditHittingStat", "Home", new { playerId = item.PlayerId })'"
+                       onclick="location.href='@Url.Action("EditHittingStat", "Home", new { id = item.HittingStatId })'"
                        style="background-color:lightcoral" />
                 |
                 <input type="button"
                        value="Delete"
-                       onclick="location.href='@Url.Action("DeleteHittingStat", "Home", new { playerId = item.PlayerId })'"
+                       onclick="location.href='@Url.Action("DeleteHittingStat", "Home", new { id = item.HittingStatId })'"
                        style="background-color:orangered" />
             </td>
         </tr>
